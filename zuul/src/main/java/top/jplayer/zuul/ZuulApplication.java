@@ -1,5 +1,6 @@
 package top.jplayer.zuul;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -7,6 +8,8 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.netflix.zuul.EnableZuulServer;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,9 +24,8 @@ import lombok.extern.slf4j.Slf4j;
 @EnableZuulProxy
 @Slf4j
 public class ZuulApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(ZuulApplication.class, args);
-        log.info("Zuul服务中心启动成功");
     }
-
 }
