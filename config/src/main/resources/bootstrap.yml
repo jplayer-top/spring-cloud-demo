@@ -5,6 +5,10 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   application:
     name: config
+  security:
+    user:
+      name: root
+      password: Config123456
   cloud:
     config:
       server:
