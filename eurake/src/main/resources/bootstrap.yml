@@ -1,0 +1,13 @@
+server:
+  port: 8881
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8881/eureka/
+    fetch-registry: true # 开启 eureka 数据同步
+    register-with-eureka: false # 是否注册到数据中心 eureka
+spring:
+  security:
+    user:
+      name: root
+      password: Eureka123456

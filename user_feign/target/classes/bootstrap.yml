@@ -1,0 +1,45 @@
+server:
+  port: 8861
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  application:
+    name: userFeign
+
+
+feign:
+  hystrix:
+    enabled: true
+ribbon:
+  ###指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间。
+  ReadTimeout: 10000
+  ###指的是建立连接后从服务器读取到可用资源所用的时间。
+  ConnectTimeout: 10000
+###配置请求超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+    ###配置具体方法超时时间
+    serverMethod:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+userService: #访问 当前服务 的策略模式
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 随机模式
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:Eureka123456@localhost:8881/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
