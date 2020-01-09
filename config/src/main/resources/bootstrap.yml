@@ -16,7 +16,7 @@ spring:
         git:
           uri: https://github.com/oblivion0001/spring-cloud-demo.git
           username: oblivion0001
-          password: Lj011200
+          password: xxxxxxx
           default-label: master
           force-pull: true
           search-paths: /repo
